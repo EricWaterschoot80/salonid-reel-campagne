@@ -4,100 +4,125 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SalonID | THINK-reel scriptvoorstel — Samplebox UGC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1a1a1a;
-    --paper: #faf8f5;
-    --accent: #b8860b;
-    --accent-soft: #f3ead6;
-    --line: #e2ddd4;
-    --muted: #6f6a61;
+    --white: #ffffff;
+    --black: #000000;
+    --accent: #FF5733;
+    --accent-soft: #fff1ed;
+    --grey: #f5f5f5;
+    --line: #e8e8e8;
+    --muted: #666666;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: Georgia, 'Times New Roman', serif;
-    background: var(--paper);
-    color: var(--ink);
-    line-height: 1.65;
+    font-family: 'Inter', Arial, sans-serif;
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+    font-size: 16px;
   }
-  .wrap { max-width: 960px; margin: 0 auto; padding: 0 28px 80px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px 80px; }
 
-  header.hero {
-    border-bottom: 3px solid var(--ink);
-    padding: 56px 0 32px;
-    margin-bottom: 8px;
-  }
-  .kicker {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 12px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 14px;
-  }
-  h1 { font-size: 42px; font-weight: 400; line-height: 1.15; max-width: 720px; }
-  h1 em { font-style: italic; color: var(--accent); }
-  .hero-sub { margin-top: 16px; font-size: 17px; color: var(--muted); max-width: 640px; }
-
-  .specs {
-    display: flex;
-    flex-wrap: wrap;
-    border-bottom: 1px solid var(--line);
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-  }
-  .spec {
-    flex: 1 1 160px;
-    padding: 18px 20px 18px 0;
-    border-right: 1px solid var(--line);
-    margin-right: 20px;
-  }
-  .spec:last-child { border-right: none; margin-right: 0; }
-  .spec b { display: block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; font-weight: 600; }
-  .spec span { font-size: 15px; }
-
-  section { margin-top: 56px; }
-  h2 {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+  /* topbar zoals salonid.com usp-balk */
+  .topbar {
+    background: var(--black);
+    color: #fff;
     font-size: 13px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 22px;
+    text-align: center;
+    padding: 9px 16px;
+    font-weight: 500;
+  }
+  .topbar b { color: var(--accent); font-weight: 700; }
+
+  header.site {
     display: flex;
     align-items: center;
-    gap: 14px;
+    justify-content: space-between;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 48px;
   }
-  h2::after { content: ""; flex: 1; height: 1px; background: var(--ink); }
+  header.site img.logo { height: 34px; display: block; }
+  header.site .tag {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+
+  .kicker {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 44px;
+    line-height: 1.1;
+    max-width: 760px;
+    margin-bottom: 18px;
+  }
+  h1 span { color: var(--accent); }
+  .hero-sub { font-size: 17px; color: var(--muted); max-width: 680px; margin-bottom: 36px; }
+
+  .specs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 64px;
+  }
+  .spec {
+    background: var(--grey);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .spec b { display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; font-weight: 600; }
+  .spec span { font-size: 14px; font-weight: 600; }
+
+  section { margin-bottom: 72px; }
+  h2 {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+  h2 em { font-style: normal; color: var(--accent); }
 
   .think-box {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 36px 40px;
+    background: var(--black);
+    color: #fff;
+    border-radius: 20px;
+    padding: 40px 44px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 36px;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
   }
-  .think-box h3 { font-size: 22px; font-weight: 400; font-style: italic; margin-bottom: 12px; color: #e8d9b0; }
-  .think-box p, .think-box li { font-size: 15px; color: #d8d4cc; }
+  .think-box h3 { font-family: 'Roboto', Arial, sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 12px; color: var(--accent); }
+  .think-box p, .think-box li { font-size: 15px; color: #d9d9d9; }
+  .think-box .quote { font-size: 19px; line-height: 1.55; color: #fff; font-weight: 500; }
   .think-box ul { list-style: none; }
-  .think-box li { padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .think-box li { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.14); }
   .think-box li:last-child { border-bottom: none; }
-  .quote {
-    font-size: 18px;
-    font-style: italic;
-    line-height: 1.6;
-    color: var(--paper) !important;
-    border-left: 3px solid var(--accent);
-    padding-left: 18px;
-    margin-top: 10px;
-  }
+  .think-box li::before { content: "✓ "; color: var(--accent); font-weight: 700; }
 
   /* storyboard */
   .shot {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 280px 1fr;
     gap: 36px;
-    padding: 36px 0;
+    padding: 32px 0;
     border-bottom: 1px solid var(--line);
     align-items: start;
   }
@@ -105,122 +130,189 @@
   .frame {
     position: relative;
     aspect-ratio: 9 / 16;
-    max-width: 300px;
-    background: #111;
+    max-width: 280px;
+    background: var(--grey);
     overflow: hidden;
-    border-radius: 14px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    border-radius: 16px;
   }
-  .frame img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.92; }
+  .frame img, .frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
   .frame .overlay-top {
     position: absolute; top: 0; left: 0; right: 0;
-    padding: 14px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 12px 14px;
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700;
     color: #fff;
-    background: linear-gradient(rgba(0,0,0,0.55), transparent);
+    background: linear-gradient(rgba(0,0,0,0.6), transparent);
   }
   .frame .overlay-text {
     position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 18px 14px 20px;
+    padding: 18px 14px;
     background: linear-gradient(transparent, rgba(0,0,0,0.75));
     color: #fff;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 14px;
     font-weight: 700;
     text-align: center;
   }
-  .shot-meta .timecode {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+  .timecode {
     display: inline-block;
     background: var(--accent-soft);
     color: var(--accent);
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: 2px;
-    padding: 5px 12px;
-    border-radius: 20px;
-    margin-bottom: 10px;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 12px;
   }
-  .shot-meta h3 { font-size: 26px; font-weight: 400; margin-bottom: 14px; }
-  .shot-meta h3 span { color: var(--muted); font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; letter-spacing: 1px; }
+  .shot-meta h3 { font-family: 'Roboto', Arial, sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 14px; }
+  .shot-meta h3 span { color: var(--muted); font-size: 14px; font-weight: 500; }
   .block { margin-bottom: 16px; }
   .block b {
     display: block;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
     color: var(--muted); margin-bottom: 4px; font-weight: 600;
   }
-  .vo { font-size: 17px; font-style: italic; }
-  .vo::before { content: "“"; color: var(--accent); }
-  .vo::after { content: "”"; color: var(--accent); }
+  .vo { font-size: 16px; font-weight: 500; }
+  .vo::before { content: "“"; color: var(--accent); font-weight: 700; }
+  .vo::after { content: "”"; color: var(--accent); font-weight: 700; }
   .onscreen {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 14px; font-weight: 700;
-    background: #fff; border: 1px solid var(--line);
-    display: inline-block; padding: 6px 12px;
+    font-size: 13px; font-weight: 700;
+    background: var(--grey);
+    display: inline-block; padding: 8px 14px;
+    border-radius: 8px;
   }
 
-  /* CTA + metrics */
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .card {
-    background: #fff;
-    border: 1px solid var(--line);
+    background: var(--grey);
+    border-radius: 16px;
     padding: 28px 30px;
   }
-  .card h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  .card h4 { font-family: 'Roboto', Arial, sans-serif; font-size: 15px; font-weight: 700; color: var(--accent); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 1px; }
   .card ul { list-style: none; }
-  .card li { padding: 8px 0; border-bottom: 1px dotted var(--line); font-size: 15px; }
+  .card li { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
   .card li:last-child { border-bottom: none; }
+  .card a { color: var(--black); font-weight: 600; }
   .cta-code {
     display: inline-block;
-    font-family: 'Courier New', monospace;
     font-weight: 700;
-    font-size: 18px;
-    background: var(--ink);
-    color: #e8d9b0;
+    background: var(--black);
+    color: #fff;
     padding: 6px 16px;
-    letter-spacing: 3px;
+    border-radius: 8px;
+    letter-spacing: 2px;
   }
-
-  .ugc-note {
-    margin-top: 14px;
+  .facts {
+    margin-top: 20px;
     background: var(--accent-soft);
-    border-left: 4px solid var(--accent);
-    padding: 20px 24px;
+    border-radius: 16px;
+    padding: 22px 26px;
     font-size: 15px;
   }
-  .ugc-note b { font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .facts b { color: var(--accent); }
 
-  footer { margin-top: 70px; padding-top: 20px; border-top: 3px solid var(--ink); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; }
+  /* gekozen UGC */
+  .chosen {
+    background: var(--grey);
+    border-radius: 20px;
+    padding: 36px 40px;
+  }
+  .chosen-head {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 28px;
+  }
+  .chosen-head img {
+    width: 120px; height: 120px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    border: 4px solid var(--accent);
+    display: block;
+  }
+  .chosen-head .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 8px;
+  }
+  .chosen-head h3 { font-family: 'Roboto', Arial, sans-serif; font-size: 24px; font-weight: 700; }
+  .chosen-head p { font-size: 15px; color: var(--muted); margin-top: 6px; }
 
-  @media (max-width: 720px) {
-    .shot { grid-template-columns: 1fr; }
-    .think-box { grid-template-columns: 1fr; }
-    .grid-2 { grid-template-columns: 1fr; }
-    h1 { font-size: 30px; }
+  details.archief { margin-top: 28px; }
+  details.archief summary {
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+  }
+  .rejected { opacity: 0.75; }
+  .rejected .timecode { background: #fdeaea; color: #c0392b; }
+
+  .btn {
+    display: inline-block;
+    background: var(--black);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 12px 26px;
+    border-radius: 100px;
+    text-decoration: none;
+  }
+  .btn.accent { background: var(--accent); }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 760px) {
+    .shot, .think-box, .grid-2, .chosen-head { grid-template-columns: 1fr; }
+    .specs { grid-template-columns: 1fr 1fr; }
+    h1 { font-size: 32px; }
   }
 </style>
 </head>
 <body>
+
+<div class="topbar">Je eigen merk vanaf €100,- · <b>Altijd gratis verzending</b> · Full colour print, geen stickers</div>
+
 <div class="wrap">
 
-  <header class="hero">
-    <div class="kicker">Instagram Reel Campagne · Fase 2 van 3 · THINK</div>
-    <h1>De samplebox-reel: <em>eerst testen, zonder verplichtingen</em></h1>
-    <p class="hero-sub">Scriptvoorstel voor een UGC-reel van circa 20 seconden waarin een Nederlandse salon-eigenaar de SalonID samplebox ontvangt, uitpakt en test. Kernboodschap: met SalonID start je een eigen merk haarproducten met je eigen logo, en je test eerst via de samplebox. Doel: twijfelaars over de streep met bewijs en lage drempel.</p>
+  <header class="site">
+    <img class="logo" src="https://salonid.com/cdn/shop/files/SalonID_Nino_Final.svg?v=1711371206&width=600" alt="SalonID logo">
+    <span class="tag">Instagram Reel Campagne · intern voorstel</span>
   </header>
+
+  <span class="kicker">Fase 2 van 3 · THINK</span>
+  <h1>De samplebox-reel: <span>eerst testen, zonder verplichtingen</span></h1>
+  <p class="hero-sub">Scriptvoorstel voor een UGC-reel van circa 20 seconden waarin een Nederlandse salon-eigenaar de SalonID samplebox ontvangt, uitpakt en test. Kernboodschap: met SalonID start je een eigen merk haarproducten met je eigen logo, en je test eerst via de samplebox. Doel: twijfelaars over de streep met bewijs en lage drempel.</p>
 
   <div class="specs">
     <div class="spec"><b>Formaat</b><span>9:16 · 1080×1920</span></div>
     <div class="spec"><b>Lengte</b><span>± 20 sec (3 shots)</span></div>
     <div class="spec"><b>Persona</b><span>Salon-eigenaar, vrouw 30-40</span></div>
     <div class="spec"><b>Taal</b><span>Nederlands (NL stem)</span></div>
-    <div class="spec"><b>Merkzichtbaarheid</b><span>SalonID binnen 3 sec</span></div>
+    <div class="spec"><b>Merk in beeld</b><span>SalonID binnen 3 sec</span></div>
   </div>
 
   <section>
-    <h2>THINK · overweging en bevestiging</h2>
+    <h2>THINK · <em>overweging en bevestiging</em></h2>
     <div class="think-box">
       <div>
         <h3>Kernboodschap</h3>
@@ -238,14 +330,13 @@
   </section>
 
   <section>
-    <h2>Storyboard · 3 shots · ± 20 seconden</h2>
+    <h2>Storyboard · <em>3 shots · ± 20 seconden</em></h2>
 
-    <!-- SHOT 1 -->
     <div class="shot">
       <div class="frame">
         <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_132238_2d940d7d-4190-4326-870a-b57d4bbed12e.png" alt="Shot 1: de SalonID samplebox wordt uitgepakt aan de receptie van de kapsalon">
         <div class="overlay-top">Shot 1 · 0:00 – 0:06</div>
-        <div class="overlay-text">Eerst testen? Dat kan.</div>
+        <div class="overlay-text">Je eigen merk. Jouw logo.</div>
       </div>
       <div class="shot-meta">
         <span class="timecode">0:00 – 0:06</span>
@@ -265,7 +356,6 @@
       </div>
     </div>
 
-    <!-- SHOT 2 -->
     <div class="shot">
       <div class="frame">
         <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_132242_99a26a0a-78df-4981-9a66-e9036bba58de.png" alt="Shot 2: de sampleproducten worden op de balie gezet en aan de camera getoond">
@@ -290,7 +380,6 @@
       </div>
     </div>
 
-    <!-- SHOT 3 -->
     <div class="shot">
       <div class="frame">
         <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_132244_177f490a-d925-4090-b1bb-3295165cdcb8.png" alt="Shot 3: de eigenaar opent een fles, ruikt eraan en test het product">
@@ -317,7 +406,7 @@
   </section>
 
   <section>
-    <h2>CTA &amp; meetplan</h2>
+    <h2>CTA &amp; <em>meetplan</em></h2>
     <div class="grid-2">
       <div class="card">
         <h4>Call-to-action</h4>
@@ -337,79 +426,82 @@
         </ul>
       </div>
     </div>
-    <div class="ugc-note">
+    <div class="facts">
       <b>Productfeiten voor copy en comments:</b> kies 1 tot 6 producten uit 25 professionele formules · vanaf €8,94 per stuk · samplebox €13,95 · altijd gratis verzending · full colour print, geen stickers · eigen merk vanaf €100.
     </div>
   </section>
 
   <section>
-    <h2>Gekozen UGC · Claire</h2>
-
-    <div class="ugc-note" style="margin-top:0; margin-bottom:28px;">
-      <b>Keuze:</b> voor deze campagne is gekozen voor <b>Claire</b> als UGC-avatar. Haar uitstraling past het best bij de doelgroep salon-eigenaren en de eigen avatar geeft consistentie over toekomstige campagnes. De eerdere test met Margot is afgekeurd (zie onderaan).
-    </div>
-
-    <div class="shot" style="border-bottom:none;">
-      <div class="frame">
-        <video controls playsinline poster="https://salonid.com/cdn/shop/files/EA.1103.png?v=1770897545" style="width:100%;height:100%;object-fit:cover;display:block;">
-          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_130812_7a41d8e2-ba95-4107-bd01-becf5ec1ac40.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="shot-meta">
-        <span class="timecode">Definitief voorstel · Claire · 15 sec · 9:16</span>
-        <h3>Samplebox UGC <span>· eigen merk script, v3</span></h3>
-        <div class="block">
-          <b>Gesproken tekst (NL)</b>
-          <p class="vo">Met SalonID start je een eigen merk haarproducten, met je eigen logo. Wij wilden het eerst testen. Daarom vroegen we eerst de samplebox aan. Zonder verplichtingen. Dit ruikt echt naar salonkwaliteit. Vraag de samplebox aan met code SAMPLE10.</p>
-        </div>
-        <div class="block">
-          <b>Uitspraakcontrole</b>
-          <p>Fonetische sturing toegepast op: <em>SalonID</em> (Salon-ie-dee), <em>ruikt</em> (juiste ui-klank, niet "ruk"), <em>zonder verplichtingen</em> (elke lettergreep duidelijk) en <em>SAMPLE10</em> (sample tien).</p>
-        </div>
-        <div class="block">
-          <b>Download</b>
-          <p><a href="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_130812_7a41d8e2-ba95-4107-bd01-becf5ec1ac40.mp4">Directe mp4-link</a> (720p, 768×1344)</p>
-        </div>
-        <div class="block">
-          <b>Kanttekening</b>
-          <p>Marketing Studio levert maximaal 15 seconden. Voor de volledige 20 seconden: eindkaart met CTA en code SAMPLE10 (± 5 sec) in de edit toevoegen. Deze AI-versie dient als voorstel/animatic; voor de livegang is een opname met een echte salon-eigenaar het sterkst, want authenticiteit weegt zwaar in de THINK-fase.</p>
+    <h2>Gekozen UGC · <em>Claire</em></h2>
+    <div class="chosen">
+      <div class="chosen-head">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_124114_da0c54f5-5f89-48ca-bb12-05d9043599b2.png" alt="Claire, de gekozen UGC-avatar voor de SalonID campagne">
+        <div>
+          <span class="badge">Gekozen avatar</span>
+          <h3>Claire</h3>
+          <p>Voor deze campagne is gekozen voor Claire als UGC-avatar. Haar uitstraling past het best bij de doelgroep salon-eigenaren en de eigen avatar geeft consistentie over toekomstige campagnes. De eerdere test met Margot is afgekeurd (zie archief onderaan).</p>
         </div>
       </div>
-    </div>
 
-    <details style="margin-top:24px; border-top:1px solid var(--line); padding-top:20px;">
-      <summary style="cursor:pointer; font-family:'Helvetica Neue', Arial, sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);">Archief · eerdere versies (afgekeurd)</summary>
-      <div class="shot">
+      <div class="shot" style="border-bottom:none; padding-bottom:0;">
         <div class="frame">
-          <video controls playsinline poster="https://salonid.com/cdn/shop/files/EA.1103.png?v=1770897545" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_124640_a016aaaf-ddfd-4ba0-9783-35c605125f2c.mp4" type="video/mp4">
+          <video controls playsinline poster="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_124114_da0c54f5-5f89-48ca-bb12-05d9043599b2.png">
+            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_130812_7a41d8e2-ba95-4107-bd01-becf5ec1ac40.mp4" type="video/mp4">
           </video>
         </div>
         <div class="shot-meta">
-          <span class="timecode">Afgekeurd · Claire v2</span>
-          <h3>Eerdere Claire-versie <span>· oud script</span></h3>
+          <span class="timecode">Definitief voorstel · 15 sec · 9:16</span>
+          <h3>Samplebox UGC <span>· eigen merk script, v3</span></h3>
           <div class="block">
-            <b>Reden afkeuring</b>
-            <p>Oud script zonder de eigen merk-boodschap; uitspraak van "zonder verplichtingen" nog onvoldoende. <a href="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_124640_a016aaaf-ddfd-4ba0-9783-35c605125f2c.mp4">mp4</a></p>
+            <b>Gesproken tekst (NL)</b>
+            <p class="vo">Met SalonID start je een eigen merk haarproducten, met je eigen logo. Wij wilden het eerst testen. Daarom vroegen we eerst de samplebox aan. Zonder verplichtingen. Dit ruikt echt naar salonkwaliteit. Vraag de samplebox aan met code SAMPLE10.</p>
           </div>
+          <div class="block">
+            <b>Uitspraakcontrole</b>
+            <p>Fonetische sturing toegepast op: <em>SalonID</em> (Salon-ie-dee), <em>ruikt</em> (juiste ui-klank, niet "ruk"), <em>zonder verplichtingen</em> (elke lettergreep duidelijk) en <em>SAMPLE10</em> (sample tien).</p>
+          </div>
+          <div class="block">
+            <b>Kanttekening</b>
+            <p>Marketing Studio levert maximaal 15 seconden. Voor de volledige 20 seconden: eindkaart met CTA en code SAMPLE10 (± 5 sec) in de edit toevoegen. Voor de livegang blijft een opname met een echte salon-eigenaar het sterkst.</p>
+          </div>
+          <a class="btn accent" href="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_130812_7a41d8e2-ba95-4107-bd01-becf5ec1ac40.mp4">Download mp4 (720p)</a>
         </div>
       </div>
-      <div class="shot" style="border-bottom:none;">
-        <div class="frame">
-          <video controls playsinline poster="https://salonid.com/cdn/shop/files/EA.1103.png?v=1770897545" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_123439_fa8ce3e4-dc85-4f57-85db-d2a1f7e44865.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="shot-meta">
-          <span class="timecode">Afgekeurd · Margot v1 · mislukte test</span>
-          <h3>Margot-test <span>· niet gebruiken</span></h3>
-          <div class="block">
-            <b>Reden afkeuring</b>
-            <p>Mislukte test: "SalonID" klonk als "Salon-YD", "SAMPLE10" en "ruikt" verkeerd uitgesproken, avatar past minder bij de doelgroep. <a href="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_123439_fa8ce3e4-dc85-4f57-85db-d2a1f7e44865.mp4">mp4</a></p>
+
+      <details class="archief">
+        <summary>Archief · eerdere versies (afgekeurd)</summary>
+        <div class="shot rejected">
+          <div class="frame">
+            <video controls playsinline>
+              <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_124640_a016aaaf-ddfd-4ba0-9783-35c605125f2c.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="shot-meta">
+            <span class="timecode">Afgekeurd · Claire v2</span>
+            <h3>Eerdere Claire-versie <span>· oud script</span></h3>
+            <div class="block">
+              <b>Reden afkeuring</b>
+              <p>Oud script zonder de eigen merk-boodschap; uitspraak van "zonder verplichtingen" nog onvoldoende. <a href="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_124640_a016aaaf-ddfd-4ba0-9783-35c605125f2c.mp4">mp4</a></p>
+            </div>
           </div>
         </div>
-      </div>
-    </details>
+        <div class="shot rejected" style="border-bottom:none;">
+          <div class="frame">
+            <video controls playsinline>
+              <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_123439_fa8ce3e4-dc85-4f57-85db-d2a1f7e44865.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="shot-meta">
+            <span class="timecode">Afgekeurd · Margot v1 · mislukte test</span>
+            <h3>Margot-test <span>· niet gebruiken</span></h3>
+            <div class="block">
+              <b>Reden afkeuring</b>
+              <p>Mislukte test: "SalonID" klonk als "Salon-YD", "SAMPLE10" en "ruikt" verkeerd uitgesproken, avatar past minder bij de doelgroep. <a href="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_123439_fa8ce3e4-dc85-4f57-85db-d2a1f7e44865.mp4">mp4</a></p>
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
   </section>
 
   <footer>
