@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SalonID | THINK-reel scriptvoorstel — Samplebox UGC</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #faf8f5;
+    --accent: #b8860b;
+    --accent-soft: #f3ead6;
+    --line: #e2ddd4;
+    --muted: #6f6a61;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 28px 80px; }
+
+  header.hero {
+    border-bottom: 3px solid var(--ink);
+    padding: 56px 0 32px;
+    margin-bottom: 8px;
+  }
+  .kicker {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  h1 { font-size: 42px; font-weight: 400; line-height: 1.15; max-width: 720px; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub { margin-top: 16px; font-size: 17px; color: var(--muted); max-width: 640px; }
+
+  .specs {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--line);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .spec {
+    flex: 1 1 160px;
+    padding: 18px 20px 18px 0;
+    border-right: 1px solid var(--line);
+    margin-right: 20px;
+  }
+  .spec:last-child { border-right: none; margin-right: 0; }
+  .spec b { display: block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; font-weight: 600; }
+  .spec span { font-size: 15px; }
+
+  section { margin-top: 56px; }
+  h2 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--ink); }
+
+  .think-box {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 36px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+  .think-box h3 { font-size: 22px; font-weight: 400; font-style: italic; margin-bottom: 12px; color: #e8d9b0; }
+  .think-box p, .think-box li { font-size: 15px; color: #d8d4cc; }
+  .think-box ul { list-style: none; }
+  .think-box li { padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .think-box li:last-child { border-bottom: none; }
+  .quote {
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--paper) !important;
+    border-left: 3px solid var(--accent);
+    padding-left: 18px;
+    margin-top: 10px;
+  }
+
+  /* storyboard */
+  .shot {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 36px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .shot:last-of-type { border-bottom: none; }
+  .frame {
+    position: relative;
+    aspect-ratio: 9 / 16;
+    max-width: 300px;
+    background: #111;
+    overflow: hidden;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  }
+  .frame img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.92; }
+  .frame .overlay-top {
+    position: absolute; top: 0; left: 0; right: 0;
+    padding: 14px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(rgba(0,0,0,0.55), transparent);
+  }
+  .frame .overlay-text {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 18px 14px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    color: #fff;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .shot-meta .timecode {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .shot-meta h3 { font-size: 26px; font-weight: 400; margin-bottom: 14px; }
+  .shot-meta h3 span { color: var(--muted); font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; letter-spacing: 1px; }
+  .block { margin-bottom: 16px; }
+  .block b {
+    display: block;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 4px; font-weight: 600;
+  }
+  .vo { font-size: 17px; font-style: italic; }
+  .vo::before { content: "“"; color: var(--accent); }
+  .vo::after { content: "”"; color: var(--accent); }
+  .onscreen {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px; font-weight: 700;
+    background: #fff; border: 1px solid var(--line);
+    display: inline-block; padding: 6px 12px;
+  }
+
+  /* CTA + metrics */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 28px 30px;
+  }
+  .card h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  .card ul { list-style: none; }
+  .card li { padding: 8px 0; border-bottom: 1px dotted var(--line); font-size: 15px; }
+  .card li:last-child { border-bottom: none; }
+  .cta-code {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    font-size: 18px;
+    background: var(--ink);
+    color: #e8d9b0;
+    padding: 6px 16px;
+    letter-spacing: 3px;
+  }
+
+  .ugc-note {
+    margin-top: 14px;
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    padding: 20px 24px;
+    font-size: 15px;
+  }
+  .ugc-note b { font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  footer { margin-top: 70px; padding-top: 20px; border-top: 3px solid var(--ink); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; }
+
+  @media (max-width: 720px) {
+    .shot { grid-template-columns: 1fr; }
+    .think-box { grid-template-columns: 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
+    h1 { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="kicker">Instagram Reel Campagne · Fase 2 van 3 · THINK</div>
+    <h1>De samplebox-reel: <em>eerst testen, zonder verplichtingen</em></h1>
+    <p class="hero-sub">Scriptvoorstel voor een UGC-reel van circa 20 seconden waarin een Nederlandse salon-eigenaar de SalonID samplebox ontvangt, uitpakt en test. Doel: twijfelaars over de streep met bewijs en lage drempel.</p>
+  </header>
+
+  <div class="specs">
+    <div class="spec"><b>Formaat</b><span>9:16 · 1080×1920</span></div>
+    <div class="spec"><b>Lengte</b><span>± 20 sec (3 shots)</span></div>
+    <div class="spec"><b>Persona</b><span>Salon-eigenaar, vrouw 30-40</span></div>
+    <div class="spec"><b>Taal</b><span>Nederlands (NL stem)</span></div>
+    <div class="spec"><b>Merkzichtbaarheid</b><span>SalonID binnen 3 sec</span></div>
+  </div>
+
+  <section>
+    <h2>THINK · overweging en bevestiging</h2>
+    <div class="think-box">
+      <div>
+        <h3>Kernboodschap</h3>
+        <p class="quote">Wij wilden zeker weten dat SalonID bij onze salon past. Daarom zijn we gestart met de SalonID samplebox. Zo konden we eerst testen. Zonder verplichtingen.</p>
+      </div>
+      <div>
+        <h3>Behoefte van de kijker</h3>
+        <ul>
+          <li>Zekerheid: past dit bij mijn salon?</li>
+          <li>Bewijs van andere salons (FOMO)</li>
+          <li>Inzicht in hoe laagdrempelig starten is</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Storyboard · 3 shots · ± 20 seconden</h2>
+
+    <!-- SHOT 1 -->
+    <div class="shot">
+      <div class="frame">
+        <img src="https://salonid.com/cdn/shop/files/EA.1103.png?v=1770897545" alt="Shot 1: de SalonID samplebox wordt uitgepakt aan de receptie van de kapsalon">
+        <div class="overlay-top">Shot 1 · 0:00 – 0:06</div>
+        <div class="overlay-text">Eerst testen? Dat kan.</div>
+      </div>
+      <div class="shot-meta">
+        <span class="timecode">0:00 – 0:06</span>
+        <h3>Uitpakken <span>· hook + merkherkenning</span></h3>
+        <div class="block">
+          <b>Beeld</b>
+          <p>Handheld selfie-stijl. De eigenaar staat aan de receptie van haar salon (stoelen en spiegels zichtbaar op de achtergrond) en opent de zojuist bezorgde samplebox. Het SalonID-logo op de doos is binnen 3 seconden in beeld.</p>
+        </div>
+        <div class="block">
+          <b>Voice-over (NL)</b>
+          <p class="vo">Wij wilden zeker weten dat SalonID bij onze salon past. Daarom zijn we gestart met de samplebox.</p>
+        </div>
+        <div class="block">
+          <b>On-screen tekst</b>
+          <span class="onscreen">Eerst testen? Dat kan. 📦</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHOT 2 -->
+    <div class="shot">
+      <div class="frame">
+        <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/7bfac9d8-f2a6-4579-9eb3-54f851f62518.png" alt="Shot 2: de sampleproducten worden op de balie gezet en aan de camera getoond">
+        <div class="overlay-top">Shot 2 · 0:06 – 0:13</div>
+        <div class="overlay-text">Kies zelf: tot 6 producten uit 25 formules</div>
+      </div>
+      <div class="shot-meta">
+        <span class="timecode">0:06 – 0:13</span>
+        <h3>Producten laten zien <span>· bewijs + keuzevrijheid</span></h3>
+        <div class="block">
+          <b>Beeld</b>
+          <p>Ze zet de flessen één voor één op de balie en draait ze met het etiket naar de camera. Close-up van de private label producten in salonformaat. Rustige pan langs de line-up.</p>
+        </div>
+        <div class="block">
+          <b>Voice-over (NL)</b>
+          <p class="vo">Je kiest zelf je producten om te testen. Zo konden we eerst ervaren of het écht bij ons past. Zonder verplichtingen.</p>
+        </div>
+        <div class="block">
+          <b>On-screen tekst</b>
+          <span class="onscreen">1 t/m 6 producten · 25 formules · gratis verzending</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHOT 3 -->
+    <div class="shot">
+      <div class="frame">
+        <img src="https://salonid.com/cdn/shop/files/EA.1103.png?v=1770897545" alt="Shot 3: de eigenaar opent een fles, ruikt eraan en test het product">
+        <div class="overlay-top">Shot 3 · 0:13 – 0:20</div>
+        <div class="overlay-text">Vraag de samplebox aan · code SAMPLE10</div>
+      </div>
+      <div class="shot-meta">
+        <span class="timecode">0:13 – 0:20</span>
+        <h3>Testen en ruiken <span>· zintuiglijk bewijs + CTA</span></h3>
+        <div class="block">
+          <b>Beeld</b>
+          <p>Close-up: ze opent een fles, ruikt eraan, glimlacht oprecht en wrijft wat product tussen haar vingers. Eindframe: samplebox met producten, on-screen CTA met kortingscode.</p>
+        </div>
+        <div class="block">
+          <b>Voice-over (NL)</b>
+          <p class="vo">En eerlijk? Dit ruikt en voelt echt als salonkwaliteit. Vraag de samplebox aan met code SAMPLE10.</p>
+        </div>
+        <div class="block">
+          <b>On-screen tekst (eindkaart)</b>
+          <span class="onscreen">Vraag de SalonID samplebox aan → code SAMPLE10</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>CTA &amp; meetplan</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h4>Call-to-action</h4>
+        <ul>
+          <li>Primair: vraag de SalonID samplebox aan → <a href="https://salonid.com/products/sample-box">salonid.com/products/sample-box</a></li>
+          <li>Tijdelijke korting: <span class="cta-code">SAMPLE10</span></li>
+          <li>Instagram: link in bio + sticker/knop op de reel</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Wat meten</h4>
+        <ul>
+          <li>Kliks naar de samplebox-pagina</li>
+          <li>Sample-aanvragen (conversies)</li>
+          <li>Gebruik kortingscode SAMPLE10</li>
+          <li>Cost per lead</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ugc-note">
+      <b>Productfeiten voor copy en comments:</b> kies 1 tot 6 producten uit 25 professionele formules · vanaf €8,94 per stuk · samplebox €13,95 · altijd gratis verzending · full colour print, geen stickers · eigen merk vanaf €100.
+    </div>
+  </section>
+
+  <section>
+    <h2>UGC-video (AI-gegenereerde voorstellen)</h2>
+
+    <!-- Variant A -->
+    <div class="shot">
+      <div class="frame">
+        <video controls playsinline poster="https://salonid.com/cdn/shop/files/EA.1103.png?v=1770897545" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_123439_fa8ce3e4-dc85-4f57-85db-d2a1f7e44865.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="shot-meta">
+        <span class="timecode">Variant A · Margot · 15 sec · 9:16</span>
+        <h3>Samplebox UGC <span>· eerste versie</span></h3>
+        <div class="block">
+          <b>Opzet</b>
+          <p>Nederlandse salon-eigenaar in een lichte moderne kapsalon. Drie shots volgens dit script: uitpakken aan de receptie → producten opstellen met etiket naar camera → openen, ruiken en testen tussen de vingers.</p>
+        </div>
+        <div class="block">
+          <b>Bekende issues</b>
+          <p>Uitspraak: "SalonID" klonk als "Salon-YD", "SAMPLE10" en "ruikt" werden niet goed uitgesproken. Gecorrigeerd in variant B.</p>
+        </div>
+        <div class="block">
+          <b>Download</b>
+          <p><a href="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_123439_fa8ce3e4-dc85-4f57-85db-d2a1f7e44865.mp4">Directe mp4-link</a> (720p)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Variant B -->
+    <div class="shot" style="border-bottom:none;">
+      <div class="frame">
+        <video controls playsinline poster="https://salonid.com/cdn/shop/files/EA.1103.png?v=1770897545" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_124640_a016aaaf-ddfd-4ba0-9783-35c605125f2c.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="shot-meta">
+        <span class="timecode">Variant B · Claire · 15 sec · 9:16</span>
+        <h3>Samplebox UGC <span>· uitspraak gecorrigeerd</span></h3>
+        <div class="block">
+          <b>Aanpassingen t.o.v. variant A</b>
+          <p>Avatar Claire (eigen avatar). Fonetische sturing in de gesproken tekst: "SalonID" als <em>Salon-ie-dee</em>, "SAMPLE10" als <em>sample tien</em>, en correcte uitspraak van <em>ruikt</em> (niet "ruk").</p>
+        </div>
+        <div class="block">
+          <b>Download</b>
+          <p><a href="https://d8j0ntlcm91z4.cloudfront.net/user_3F0abcyn4KniC51N4YHsLvOFSaL/hf_20260705_124640_a016aaaf-ddfd-4ba0-9783-35c605125f2c.mp4">Directe mp4-link</a> (720p, 768×1344)</p>
+        </div>
+        <div class="block">
+          <b>Kanttekening</b>
+          <p>Marketing Studio levert maximaal 15 seconden. Voor de volledige 20 seconden: eindkaart met CTA en code SAMPLE10 (± 5 sec) in de edit toevoegen. Deze AI-versies dienen als voorstel/animatic; voor de livegang is een opname met een echte salon-eigenaar het sterkst, want authenticiteit weegt zwaar in de THINK-fase.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>SalonID · Instagram Reel campagne · THINK-fase</span>
+    <span>Concept &amp; script · juli 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>
